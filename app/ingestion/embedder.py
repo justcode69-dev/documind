@@ -19,7 +19,8 @@ class SentenceTransformerEmbedder:
         from sentence_transformers import SentenceTransformer  # heavy import, keep lazy
 
         self.model = SentenceTransformer(model_name, device=device)
-        self.dim = self.model.get_sentence_embedding_dimension()
+        get_dim = getattr(self.model, "get_embedding_dimension", None) or self.model.get_sentence_embedding_dimension
+        self.dim = get_dim()
         self.batch_size = batch_size
         self.query_prefix = BGE_QUERY_PREFIX if "bge" in model_name.lower() else ""
 
