@@ -12,16 +12,29 @@ Every answer cites the **file and page** it came from, and says *"Document mein 
 
 ## Results
 
-<!-- Paste the table from eval/results/RESULTS.md after running the eval -->
+36 questions over 2 public PDFs (an open networking textbook, 282 pages, and the PM-KISAN operational guidelines);
+1,322 chunks; every question is searched across **all** documents. A hit means the labelled page is in the top-k.
+
 | Chunking | Retrieval | Hit@1 | Hit@5 | MRR@5 | p50 latency |
 |---|---|---|---|---|---|
-| fixed | dense | – | – | – | – |
-| recursive | dense | – | – | – | – |
-| recursive | hybrid | – | – | – | – |
-| recursive | hybrid + rerank | – | – | – | – |
+| fixed | dense | 69% | 100% | 0.820 | 21 ms |
+| fixed | hybrid | 72% | 97% | 0.819 | 51 ms |
+| fixed | hybrid + rerank | 86% | 100% | 0.919 | 256 ms |
+| recursive | dense | 78% | 100% | 0.870 | 23 ms |
+| recursive | hybrid | 78% | 100% | 0.866 | 53 ms |
+| **recursive** | **hybrid + rerank** | **94%** | **100%** | **0.963** | 262 ms |
 
-50 hand-checked questions over N PDFs; a hit means the correct page is in the top-k chunks, searched across *all* documents.
-Answer faithfulness (LLM-as-judge): –% · citation page accuracy: –%
+**Answer quality** (recursive + hybrid + rerank, LLM-as-judge): faithfulness 100% · citation page accuracy 97% ·
+"not found" on 1/36.
+
+What this shows, and what it doesn't:
+- **Reranking is the biggest win**: Hit@1 78% → 94% for ~240 ms extra latency. Recursive chunking beats fixed-size
+  windows on its own (Hit@1 69% → 78% with dense retrieval).
+- **Hit@5 saturates** on this set, so Hit@1 and MRR are the metrics that separate the configurations.
+- **Hybrid search shows no gain here.** The questions were LLM-drafted from the target page (then spot-checked), so
+  they already share vocabulary with it, which favours dense retrieval. BM25 earns its keep on exact tokens
+  (scheme names, codes, numbers) that this set under-represents.
+- Small set (36 questions); the judge is an LLM and tends to be lenient. Reproduce with `python -m eval.run_eval`.
 
 ## Architecture
 
