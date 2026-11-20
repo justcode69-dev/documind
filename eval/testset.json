@@ -1,0 +1,291 @@
+[
+  {
+    "id": "q1",
+    "question": "Why is it impractical for applications to use raw IP addresses directly, and which service is introduced to translate human‑readable names into those addresses?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      65
+    ]
+  },
+  {
+    "id": "q2",
+    "question": "What are the distinct ways a connectionless service can behave in terms of error delivery and the ordering of SDUs it transmits?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      19
+    ]
+  },
+  {
+    "id": "q3",
+    "question": "If a packet destined for 4.10.11.254 arrives, which of the matching routes is selected by the longest‑prefix rule and through which interface is it sent?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      150
+    ]
+  },
+  {
+    "id": "q4",
+    "question": "When a router receives a signalling message to set up a virtual circuit, what are the two possible approaches it can take to forward that message, and how does each approach decide the route the circuit will follow?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      135
+    ]
+  },
+  {
+    "id": "q5",
+    "question": "WIN field ka matlab DATA aur ACK segment mein alag kyu hota hai?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      124
+    ]
+  },
+  {
+    "id": "q6",
+    "question": "What purposes do the variables called \"next\" and \"lastack\" serve, and how does the receiver handle a segment that arrives out of the expected order?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      80
+    ]
+  },
+  {
+    "id": "q7",
+    "question": "What kind of metric values do routing protocols in data networks normally use?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      199
+    ]
+  },
+  {
+    "id": "q8",
+    "question": "What are the two primary types of transport services that networked applications rely on, and which Internet protocol supplies the connectionless (datagram) service?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      34
+    ]
+  },
+  {
+    "id": "q9",
+    "question": "When setting up a BGP peering between two directly connected routers, what specific data does an administrator need to configure on each router so that the session can be initiated?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      184
+    ]
+  },
+  {
+    "id": "q10",
+    "question": "When examining transient routing problems, what specific behavior is assumed for the routers' distance‑vector protocol in the network diagram presented?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      200
+    ]
+  },
+  {
+    "id": "q11",
+    "question": "If a switch gets a BPDU formatted as <R,c,T,p> on one of its ports named q, how does it calculate the priority vector for that port, and what extra term is incorporated into the cost component?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      242
+    ]
+  },
+  {
+    "id": "q12",
+    "question": "If a router knows both the aggregate 193.190.0.0/15 route and the more specific 193.191.244.0/23 route, which one will it select to forward a packet whose destination address is 193.191.245.88?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      149
+    ]
+  },
+  {
+    "id": "q13",
+    "question": "What are the two contrasting strategies that networking textbooks may adopt regarding the breadth and depth of topics they cover?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      29
+    ]
+  },
+  {
+    "id": "q14",
+    "question": "When an IPv4 packet arrives at a host and is addressed to that host, what series of checks and actions does the host carry out, and how does the host treat a packet whose Protocol field indicates it carries an ICMP message?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      161
+    ]
+  },
+  {
+    "id": "q15",
+    "question": "In the suggested improvement to the Alternating Bit Protocol that adds a negative acknowledgment, what data should the NAK packet carry, and what action should the sender take upon receiving it?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      118
+    ]
+  },
+  {
+    "id": "q16",
+    "question": "Explain what the anycast transmission mode is, how the network chooses which member of the anycast group receives a packet, and why this mode helps provide redundancy.",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      15
+    ]
+  },
+  {
+    "id": "q17",
+    "question": "What are the three transmission modes used in networking, which one is predominant for most Internet services, and how does the multicast mode improve efficiency compared to sending separate copies to each recipient?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      13
+    ]
+  },
+  {
+    "id": "q18",
+    "question": "How does the client‑server model operate in terms of request and response interactions, and what historical computing environment gave rise to this model?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      31
+    ]
+  },
+  {
+    "id": "q19",
+    "question": "Python server ko IPv4 aur IPv6 dono pe connections accept karne ke liye alag threads kyu chahiye?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      63
+    ]
+  },
+  {
+    "id": "q20",
+    "question": "When you want to stop a telnet session without sending an interrupt signal to the remote machine, which keyboard shortcut should you press to pause the TCP connection and return to the telnet prompt?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      67
+    ]
+  },
+  {
+    "id": "q21",
+    "question": "After the connection between routers A and B breaks, which router eventually supplies the missing path for A to reach B, and what distance vector does it advertise for the destination B?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      139
+    ]
+  },
+  {
+    "id": "q22",
+    "question": "How does a device construct its IPv6 link‑local address, and what limitations exist on sending packets that use these addresses?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      164
+    ]
+  },
+  {
+    "id": "q23",
+    "question": "In a ring‑based layout, what consequence does a broken link have for the network’s operation, and what common method is used in city‑wide networks to mitigate this problem?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      11
+    ]
+  },
+  {
+    "id": "q24",
+    "question": "When an IPv4 datagram is larger than the link’s MTU, how does the fragmentation routine compute the payload size for each fragment, and under what circumstance is the original datagram discarded instead of being split?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      153
+    ]
+  },
+  {
+    "id": "q25",
+    "question": "Stylesheet bhejne ke baad server usi persistent TCP connection pe aur kitne HTTP requests accept karega?",
+    "filename": "Computer-Networking-Principles-Bonaventure_f.pdf",
+    "expected_pages": [
+      58
+    ]
+  },
+  {
+    "id": "q26",
+    "question": "What are the responsibilities of the Union Government’s Programme Division in the DAC&FW after it receives the financial transfer orders from the states, and how is the beneficiary notified that the amount has been deposited into their account?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      12
+    ]
+  },
+  {
+    "id": "q27",
+    "question": "Which states are permitted to postpone the Aadhaar‑based enrollment of beneficiaries until 31 March 2021?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      10
+    ]
+  },
+  {
+    "id": "q28",
+    "question": "Which farmer information fields must be provided as required data when entering details on the PM‑Kisan portal?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      8
+    ]
+  },
+  {
+    "id": "q29",
+    "question": "When cultivable land is transferred for reasons other than death after February 1 2019, what actions are officials required to take regarding eligibility, and can the new owners receive PM‑Kisan benefits?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      5
+    ]
+  },
+  {
+    "id": "q30",
+    "question": "What are the three different approaches a State or Union Territory can take to add farmer information to the PM‑Kisan portal?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      9
+    ]
+  },
+  {
+    "id": "q31",
+    "question": "Which three states are permitted to forgo Aadhaar numbers until 31 March 2021, and what alternative identity documents can be used for beneficiaries who do not have an Aadhaar?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      6
+    ]
+  },
+  {
+    "id": "q32",
+    "question": "When cultivable land is sold, gifted or partitioned after 1 February 2019, is the new owner (transferee) eligible under PM-KISAN, and when does the original owner (transferor) also become ineligible?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      4
+    ]
+  },
+  {
+    "id": "q33",
+    "question": "What is the annual financial support amount provided to eligible farmers under the PM-KISAN scheme, and how is it distributed?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      2
+    ]
+  },
+  {
+    "id": "q34",
+    "question": "What actions must a State or Union Territory government perform to ensure that beneficiaries receive their income support payments promptly?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": "q35",
+    "question": "What specific date is used to determine eligibility for the benefit, and when is this date waived according to the guidelines?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      3
+    ]
+  },
+  {
+    "id": "q36",
+    "question": "National level pe Review Committee ko kaun head karta hai?",
+    "filename": "RevisedPM-KISANOperationalGuidelines(English).pdf",
+    "expected_pages": [
+      7
+    ]
+  }
+]
