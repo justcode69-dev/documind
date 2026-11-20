@@ -52,7 +52,7 @@ class Settings(BaseSettings):
     gemini_api_key: SecretStr | None = None
     gemini_model: str = "gemini-3.5-flash-lite"
     groq_api_key: SecretStr | None = None
-    groq_model: str = "llama-3.3-70b-versatile"
+    groq_model: str = "openai/gpt-oss-120b"
     llm_timeout_s: float = 30.0
     llm_max_retries: int = 1  # keep low: with a fallback provider, failing over fast beats retrying
     history_turns: int = 4  # past user+assistant pairs used for query rewriting

@@ -70,6 +70,12 @@ class Citation:
 
 
 _CITE_RE = re.compile(r"\[(\d{1,2})\]")
+# Some models (e.g. gpt-oss) write 【3】, ［3］ or 【3†L1-L4】 instead of [3]; normalise those first.
+_ALT_CITE_RE = re.compile(r"[\[【［]\s*(\d{1,2})\s*(?:†[^\]】］]*)?[\]】］]")
+
+
+def normalize_citations(answer: str) -> str:
+    return _ALT_CITE_RE.sub(lambda m: f"[{m.group(1)}]", answer)
 
 
 def extract_citations(answer: str, chunks: list[RetrievedChunk], snippet_len: int = 240) -> list[Citation]:
@@ -101,5 +107,5 @@ def generate_answer(llm, question: str, chunks: list[RetrievedChunk]) -> tuple[s
         reason = describe_llm_error(e)
         log.warning("LLM call failed: %s", reason)
         raise LLMUnavailable(f"LLM call failed: {reason}") from e
-    answer = strip_invalid_citations(message_text(msg), len(chunks))
+    answer = strip_invalid_citations(normalize_citations(message_text(msg)), len(chunks))
     return answer, extract_citations(answer, chunks)

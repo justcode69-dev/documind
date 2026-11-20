@@ -75,3 +75,12 @@ def test_llm_error_reason_is_shown_but_truncated():
 
     r = describe_llm_error(RuntimeError("504 DEADLINE_EXCEEDED. " + "x" * 500))
     assert r.startswith("RuntimeError: 504 DEADLINE_EXCEEDED") and len(r) < 230
+
+
+def test_fullwidth_and_dagger_citations_are_normalised():
+    from app.llm.chain import normalize_citations
+
+    chunks = [rc("a", 2, 0), rc("b", 5, 1), rc("c", 9, 2)]
+    ans = normalize_citations("Raster scan 【3】. Shears 【2†L4-L9】 and ［1］.")
+    assert ans == "Raster scan [3]. Shears [2] and [1]."
+    assert [c.page for c in extract_citations(ans, chunks)] == [2, 5, 9]
