@@ -1,0 +1,14 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+data/
+eval/pdfs/
+eval/results/*.json
+!eval/results/.gitkeep
+*.log
+.DS_Store
+.streamlit/secrets.toml
