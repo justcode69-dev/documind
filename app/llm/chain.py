@@ -1,5 +1,6 @@
 """LLM factory (Gemini primary, Groq fallback) + grounded answer generation with citations."""
 
+import logging
 import re
 from dataclasses import dataclass
 
@@ -11,6 +12,8 @@ from app.config import Settings
 from app.llm.prompts import NOT_FOUND, answer_prompt, format_context
 from app.retrieval.qdrant_store import RetrievedChunk
 
+log = logging.getLogger("documind")
+
 
 class LLMUnavailable(RuntimeError):
     pass
@@ -20,14 +23,14 @@ def _gemini(s: Settings) -> BaseChatModel:
     from langchain_google_genai import ChatGoogleGenerativeAI
 
     return ChatGoogleGenerativeAI(model=s.gemini_model, google_api_key=s.gemini_api_key.get_secret_value(),
-                                  temperature=0, timeout=s.llm_timeout_s, max_retries=2)
+                                  temperature=0, timeout=s.llm_timeout_s, max_retries=s.llm_max_retries)
 
 
 def _groq(s: Settings) -> BaseChatModel:
     from langchain_groq import ChatGroq
 
     return ChatGroq(model=s.groq_model, api_key=s.groq_api_key.get_secret_value(), temperature=0,
-                    timeout=s.llm_timeout_s, max_retries=2)
+                    timeout=s.llm_timeout_s, max_retries=s.llm_max_retries)
 
 
 def build_llm(s: Settings):
@@ -47,6 +50,14 @@ def message_text(msg: BaseMessage) -> str:
         return content.strip()
     # Some providers return a list of content blocks.
     return "".join(b.get("text", "") if isinstance(b, dict) else str(b) for b in content).strip()
+
+
+def describe_llm_error(e: Exception, max_len: int = 200) -> str:
+    """Short, user-safe reason (provider errors carry status + message, never the API key)."""
+    msg = " ".join(str(e).split())
+    if not msg:
+        return type(e).__name__
+    return f"{type(e).__name__}: {msg[:max_len]}{'…' if len(msg) > max_len else ''}"
 
 
 @dataclass
@@ -87,6 +98,8 @@ def generate_answer(llm, question: str, chunks: list[RetrievedChunk]) -> tuple[s
     try:
         msg = (answer_prompt | llm).invoke({"context": format_context(chunks), "question": question})
     except Exception as e:
-        raise LLMUnavailable(f"LLM call failed: {type(e).__name__}") from e
+        reason = describe_llm_error(e)
+        log.warning("LLM call failed: %s", reason)
+        raise LLMUnavailable(f"LLM call failed: {reason}") from e
     answer = strip_invalid_citations(message_text(msg), len(chunks))
     return answer, extract_citations(answer, chunks)

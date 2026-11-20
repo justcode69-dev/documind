@@ -66,4 +66,12 @@ def test_env_example_parses_to_safe_defaults():
 
     s = Settings(_env_file=".env.example")
     assert s.api_key is None and s.qdrant_url is None and s.gemini_api_key is None and s.device is None
-    assert s.retrieval_mode == "hybrid_rerank" and s.chunk_size == 800 and s.gemini_model == "gemini-3.8-flash"
+    assert s.llm_provider == "groq" and s.gemini_model == "gemini-3.5-flash-lite"
+    assert s.retrieval_mode == "hybrid_rerank" and s.chunk_size == 800
+
+
+def test_llm_error_reason_is_shown_but_truncated():
+    from app.llm.chain import describe_llm_error
+
+    r = describe_llm_error(RuntimeError("504 DEADLINE_EXCEEDED. " + "x" * 500))
+    assert r.startswith("RuntimeError: 504 DEADLINE_EXCEEDED") and len(r) < 230

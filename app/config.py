@@ -48,12 +48,13 @@ class Settings(BaseSettings):
     top_k_final: int = 5
 
     # --- LLM ---
-    llm_provider: Literal["gemini", "groq"] = "gemini"
+    llm_provider: Literal["gemini", "groq"] = "groq"
     gemini_api_key: SecretStr | None = None
-    gemini_model: str = "gemini-3.8-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     groq_api_key: SecretStr | None = None
     groq_model: str = "llama-3.3-70b-versatile"
     llm_timeout_s: float = 30.0
+    llm_max_retries: int = 1  # keep low: with a fallback provider, failing over fast beats retrying
     history_turns: int = 4  # past user+assistant pairs used for query rewriting
 
 

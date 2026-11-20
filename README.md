@@ -8,7 +8,7 @@ Every answer cites the **file and page** it came from, and says *"Document mein 
 <!-- Record a 15–30 s demo and save it as docs/demo.gif -->
 ![demo](docs/demo.gif)
 
-**Stack:** FastAPI · LangChain · Qdrant (dense + BM25 sparse) · `bge-small-en-v1.5` embeddings · `bge-reranker-base` cross-encoder · Gemini (Groq fallback) · SQLite · Streamlit · LangSmith · Docker
+**Stack:** FastAPI · LangChain · Qdrant (dense + BM25 sparse) · `bge-small-en-v1.5` embeddings · `bge-reranker-base` cross-encoder · Groq (Gemini fallback) · SQLite · Streamlit · LangSmith · Docker
 
 ## Results
 
@@ -116,7 +116,7 @@ claim is supported by the retrieved context), **citation page accuracy** (a cite
   more precise, but slow, so it only reranks the top 20 candidates.
 - **Query rewriting** turns "aur iska formula?" into a standalone question. It's skipped on the first turn
   to save latency and free-tier quota, and falls back to the raw question if the LLM call fails.
-- **Gemini → Groq fallback** via LangChain `with_fallbacks`, so a free-tier 429 doesn't take the app down.
+- **Groq → Gemini fallback** via LangChain `with_fallbacks`, so a free-tier 429 doesn't take the app down.
 - **Duplicate uploads** are detected by SHA-256 and return the existing document instead of re-indexing.
 
 ## Security
