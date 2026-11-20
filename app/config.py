@@ -11,7 +11,10 @@ RetrievalMode = Literal["dense", "hybrid", "hybrid_rerank"]
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=".env", env_file_encoding="utf-8", extra="ignore",
+        env_ignore_empty=True,  # `API_KEY=` in .env means "not set", not "empty password"
+    )
 
     # --- API ---
     api_key: SecretStr | None = Field(
@@ -47,7 +50,7 @@ class Settings(BaseSettings):
     # --- LLM ---
     llm_provider: Literal["gemini", "groq"] = "gemini"
     gemini_api_key: SecretStr | None = None
-    gemini_model: str = "gemini-2.5-flash"
+    gemini_model: str = "gemini-3.8-flash"
     groq_api_key: SecretStr | None = None
     groq_model: str = "llama-3.3-70b-versatile"
     llm_timeout_s: float = 30.0

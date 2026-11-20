@@ -1,0 +1,13 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11", cache: pip }
+      # Tests use fakes, so skip the heavy sentence-transformers/torch install.
+      - run: grep -v sentence-transformers requirements.txt > /tmp/req.txt && pip install -r /tmp/req.txt pytest httpx ruff
+      - run: ruff check .
+      - run: pytest
