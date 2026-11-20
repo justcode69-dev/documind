@@ -1,0 +1,5 @@
+[
+  {"id": "q1", "question": "Bernoulli equation ka formula kya hai?", "filename": "fluid_mechanics_unit2.pdf", "expected_pages": [14]},
+  {"id": "q2", "question": "When is pipe flow considered turbulent?", "filename": "fluid_mechanics_unit2.pdf", "expected_pages": [21, 22]},
+  {"id": "q3", "question": "PM-KISAN scheme mein saal ka kitna paisa milta hai?", "filename": "pm_kisan_guidelines.pdf", "expected_pages": [3]}
+]
