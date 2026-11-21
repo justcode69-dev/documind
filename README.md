@@ -5,8 +5,10 @@ Every answer cites the **file and page** it came from, and says *"Document mein 
 
 ![CI](https://github.com/justcode69-dev/documind/actions/workflows/ci.yml/badge.svg)
 
-<!-- Record a 15–30 s demo and save it as docs/demo.gif -->
-![demo](docs/demo.gif)
+
+![DocuMind answering with page citations](docs/screenshot-answer.png)
+
+![Hinglish question, cited answer and latency breakdown](docs/screenshot-hinglish.png)
 
 **Stack:** FastAPI · LangChain · Qdrant (dense + BM25 sparse) · `bge-small-en-v1.5` embeddings · `bge-reranker-base` cross-encoder · Groq (Gemini fallback) · SQLite · Streamlit · LangSmith · Docker
 
